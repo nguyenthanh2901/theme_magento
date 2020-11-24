@@ -6,7 +6,7 @@
 define([
     'jquery',
     'mage/translate',
-    'jquery/ui'
+    'jquery/ui',
 ], function ($, $t) {
     'use strict';
 
@@ -62,19 +62,60 @@ define([
          * @param {Object} form
          */
         submitForm: function (form) {
-            alert('This is test');
             var addToCartButton, self = this;
+            require([
+                'jquery',
+                'Magento_Ui/js/modal/confirm'
+            ], function ($, confirmation) {
+                confirmation({
+                    title: $.mage.__('Add to cart?'),
+                    content: 'Shop now',
+                    actions: {
+                        confirm: function () {
+                            if (form.has('input[type="file"]').length && form.find('input[type="file"]').val() !== '') {
+                                self.element.off('submit');
+                                addToCartButton = $(form).find(this.options.addToCartButtonSelector);
+                                addToCartButton.prop('disabled', true);
+                                addToCartButton.addClass(this.options.addToCartButtonDisabledClass);
+                                form.submit();
+                            } else {
+                                self.ajaxSubmit(form);
+                            }
+                        },
+                        cancel: function () { },
+                        always: function () { }
+                    },
+                    buttons: [{
+                        text: $.mage.__('Cancel'),
+                        class: 'action-secondary action-dismiss',
+                        click: function (event) {
+                            this.closeModal(event);
+                        }
+                    }, {
+                        text: $.mage.__('OK'),
+                        class: 'action-primary action-accept',
+                        click: function (event) {
+                            this.closeModal(event, true);
+                        }
+                    }]
+                });
+            });
 
-            if (form.has('input[type="file"]').length && form.find('input[type="file"]').val() !== '') {
-                self.element.off('submit');
-                // disable 'Add to Cart' button
-                addToCartButton = $(form).find(this.options.addToCartButtonSelector);
-                addToCartButton.prop('disabled', true);
-                addToCartButton.addClass(this.options.addToCartButtonDisabledClass);
-                form.submit();
-            } else {
-                self.ajaxSubmit(form);
-            }
+
+
+            // alert('This is test ^^');
+            // var addToCartButton, self = this;
+
+            // if (form.has('input[type="file"]').length && form.find('input[type="file"]').val() !== '') {
+            //     self.element.off('submit');
+            //     // disable 'Add to Cart' button
+            //     addToCartButton = $(form).find(this.options.addToCartButtonSelector);
+            //     addToCartButton.prop('disabled', true);
+            //     addToCartButton.addClass(this.options.addToCartButtonDisabledClass);
+            //     form.submit();
+            // } else {
+            //     self.ajaxSubmit(form);
+            // }
         },
 
         /**

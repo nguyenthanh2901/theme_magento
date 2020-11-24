@@ -33,13 +33,16 @@ $categoryObject = $catalogHelperData->getCategory();
         <div class="product-category">
                     <?php
                         if (isset($categoryObject)) {
-                            echo "Category:".$categoryName = $categoryObject->getName();
-                        }else {
+                            echo "Category:" . $categoryName = $categoryObject->getName();
+                        } else {
                             echo "Nothing to show";
                         }
                     ?>
             </div>
         <?php endif; ?>
+        <div class="confirmation-modal-content">
+            iphone
+        </div>
         <div class="actions">
             <button type="submit"
                     title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
