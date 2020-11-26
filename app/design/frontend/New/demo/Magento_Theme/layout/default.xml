@@ -13,5 +13,18 @@
                 <block class="Magento\Customer\Block\Form\Login" name="customer_form_login" template="Magento_Customer::form/login.phtml">
                 </block>
         </referenceContainer> -->
+
+        <!-- <container name="some.container" as="someContainer" label="Some Container" htmlTag="div" htmlClass="some-container" />
+            <block class="Magento\Customer\Block\Form\Login" name="customer_form_login" template="Magento_Customer::form/login.phtml">
+            </block>
+        </container> -->
+
+        <!-- <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.sku" template="Magento_Catalog::product/view/attribute.phtml" after="product.info.type">
+            <arguments>
+                <argument name="at_call" xsi:type="string">getSku</argument>
+                <argument name="at_code" xsi:type="string">sku</argument>
+                <argument name="css_class" xsi:type="string">sku</argument>
+            </arguments>
+        </block> -->
     </body>
 </page>
