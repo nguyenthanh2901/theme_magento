@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page_layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/PageLayout/etc/layouts.xsd">
-    <layout id="3-columns-exam-footer">
-        <label translate="true">3 Columns Double exam</label>
-    </layout>
+    
 </page_layouts>

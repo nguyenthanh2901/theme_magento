@@ -9,10 +9,17 @@
             </arguments>
         </referenceBlock>
 
+         <referenceContainer name="header-wrapper" label="Page Header"  htmlTag="div" htmlClass="header content">
+                <referenceBlock  class="Magento\Theme\Block\Html\Header\Logo" name="logo" />
+                
+                <!-- <block class="Magento\Customer\Block\Form\Login" name="customer_form_login" template="Magento_Customer::form/login.phtml">
+                </block> -->
+        </referenceContainer>
         <!-- <referenceContainer name="content">
                 <block class="Magento\Customer\Block\Form\Login" name="customer_form_login" template="Magento_Customer::form/login.phtml">
                 </block>
         </referenceContainer> -->
+        
 
         <!-- <container name="some.container" as="someContainer" label="Some Container" htmlTag="div" htmlClass="some-container" />
             <block class="Magento\Customer\Block\Form\Login" name="customer_form_login" template="Magento_Customer::form/login.phtml">
@@ -26,5 +33,6 @@
                 <argument name="css_class" xsi:type="string">sku</argument>
             </arguments>
         </block> -->
+        <!-- <move element="top.search" destination="header-wrapper" before="logo"/> -->
     </body>
 </page>
